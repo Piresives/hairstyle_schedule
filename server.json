@@ -1,5 +1,9 @@
 {
-    "schedules": [
-        
-    ]
+  "schedules": [
+    {
+      "id": 1729636960805,
+      "name": "Ives Pires",
+      "when": "2024-10-22T23:00:00.000Z"
+    }
+  ]
 }
