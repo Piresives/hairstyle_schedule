@@ -4,9 +4,13 @@ import { hoursClick } from "./hours-click"
 
 const hours = document.getElementById("hours")
 
-export function hoursLoad({ date }) {
+export function hoursLoad({ date, dailySchedules }) {
     //Limpa lista de horários
     hours.innerHTML = ""
+
+    const unavailableHours = dailySchedules.map((schedule) => 
+        dayjs(schedule.when).format("HH:mm")
+)
 
     const opening = openingHours.map((hour) => {
         //Recupera somente a hora
@@ -16,12 +20,13 @@ export function hoursLoad({ date }) {
         const isHourPast = dayjs(date).add(scheduleHour, "hour").isBefore(dayjs())
         // console.log(scheduleHour, isHourPast)
 
+        const available = unavailableHours.includes(hour) || isHourPast
+
         return{
             hour,
-            available: isHourPast
+            available
         }
     })
-    // console.log(opening)
 
     //Renderizar os horários
     opening.forEach(({ hour, available}) => {
