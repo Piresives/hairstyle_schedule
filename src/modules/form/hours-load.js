@@ -1,5 +1,5 @@
 import dayjs from "dayjs"
-import {openingHours} from "../../utils/opening-hours"
+import { openingHours } from "../../utils/opening-hours"
 import { hoursClick } from "./hours-click"
 
 const hours = document.getElementById("hours")
